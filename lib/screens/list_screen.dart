@@ -13,6 +13,7 @@ class ListScreen extends StatefulWidget {
 }
 
 class _ListScreenState extends State<ListScreen> {
+  bool _visible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,7 +69,11 @@ class _ListScreenState extends State<ListScreen> {
           FloatingActionButton(
               child: Icon(Icons.unfold_less),
               tooltip: 'Show less. Hide notes content',
-              onPressed: () {}),
+              onPressed: () {
+                setState(() {
+            _visible = !_visible;
+          });
+              }),
           FloatingActionButton(
             child: Icon(Icons.add),
             tooltip: 'Add a new note',
